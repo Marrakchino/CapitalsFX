@@ -18,7 +18,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -93,14 +92,10 @@ public class FXMLController implements Initializable {
 	
 	private void setBackgroundImage()
 	{
-        this.pane.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
-        /*
-		
 		String bgImagePath = "worldmap.gif";
 		this.pane.setStyle("-fx-background-image: url('" + bgImagePath + "'); " +
 		           "-fx-background-position: center; " +
 		           "-fx-background-repeat: repeat;");
-		*/
 	}
 	
 	@FXML

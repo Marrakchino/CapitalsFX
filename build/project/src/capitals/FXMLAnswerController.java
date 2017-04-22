@@ -25,9 +25,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontSmoothingType;
@@ -53,7 +50,7 @@ public class FXMLAnswerController implements Initializable {
 	private String[] greetings = {"Well done!", "Good job!", "Nice!",
 			"Correct!", "Nice one!", "Awesome!", "Here you go!", "You rock!"};
 	private String[] consolations = {"What a pity!", "Wrong answer!",
-			"False,", "Try again,", "Nope,", "Nice try, but"};
+			"False,", "Try again,", "Nope,"};
 	
 	@FXML
 	private void exit(ActionEvent e)
@@ -184,36 +181,25 @@ public class FXMLAnswerController implements Initializable {
 		}
 	}	
 	
-	private void setFlagCentered(Country country)
-	{
-		setFlag(country);
-		//this.flag.setLayoutX((this.pane.getPrefWidth() - 250) / 2);
-		//this.flag.setLayoutY((this.pane.getPrefHeight() - 154) / 2);
-	}
-	
 	private void setFlag(Country country)
 	{
 		File flagFile = new File("data\\flags\\" + country.getCountryName().toLowerCase() + ".gif");
-		System.out.println("[D] flagFile: " + flagFile);
 		this.flag.setImage(new Image(flagFile.toURI().toString()));
+	}
+	
+	private void setFlagCentered(Country country)
+	{
+		setFlag(country);
+		this.flag.setLayoutX((this.pane.getPrefWidth() - 250) / 2);
+		this.flag.setLayoutY((this.pane.getPrefHeight() - 154) / 2);
 	}
 	
 	private void setBackgroundImage()
 	{
 		String bgImagePath = "answer_background.png";
-		File bgFile = new File(bgImagePath);
-		Image image = new Image(bgFile.toURI().toString());
-		System.out.println("[D] Bg file: " + bgFile);
-		BackgroundImage bgI = new BackgroundImage(image, null, null, null, new BackgroundSize(460, 345, false, false, true, true));
-		System.out.println("[D] bgImage: " + bgI.toString() + "  " + bgI.getSize().getHeight() + " " + bgI.getSize().getWidth());
-		//this.pane.setBackground(new Background(new BackgroundImage(image, null, null, null, null)));
-		this.pane.setBackground(new Background(bgI));
-		/*
-		this.pane.setBackground(new Background(new BackgroundImage(image, null, null, null,  null)));
 		this.pane.setStyle("-fx-background-image: url('" + bgImagePath + "'); " +
 	           "-fx-background-position: center; " +
 	           "-fx-background-repeat: repeat;");
-	    */
 	}
 	
 	@Override

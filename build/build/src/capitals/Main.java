@@ -44,7 +44,7 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("Capitals");
 			
-	        Image applicationIcon = new Image("file:res\\icones\\icone_map_color.png");
+	        Image applicationIcon = new Image("icones\\icone_map_color.png");
 	        primaryStage.getIcons().add(applicationIcon);
 			
 			primaryStage.setScene(scene);
