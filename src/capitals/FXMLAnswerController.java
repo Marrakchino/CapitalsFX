@@ -80,6 +80,7 @@ public class FXMLAnswerController implements Initializable {
 	
 	public void build(boolean answerIsCorrect, Country country) throws FileNotFoundException
 	{
+		this.pane = new AnchorPane();
 		setAnswerStatement(answerIsCorrect, country);
 		setDisplay(country);	
 		setBackgroundImage();
@@ -198,6 +199,9 @@ public class FXMLAnswerController implements Initializable {
 		this.flag.setImage(new Image(flagFile.toURI().toString()));
 	}
 	
+	/**
+	 * Doesn't freaking work !!
+	 */
 	private void setBackgroundImage()
 	{
 		String bgImagePath = "answer_background.png";
@@ -205,11 +209,15 @@ public class FXMLAnswerController implements Initializable {
 		Image image = new Image(bgFile.toURI().toString());
 		System.out.println("[D] Bg file: " + bgFile);
 		BackgroundImage bgI = new BackgroundImage(image, null, null, null, new BackgroundSize(460, 345, false, false, true, true));
-		System.out.println("[D] bgImage: " + bgI.toString() + "  " + bgI.getSize().getHeight() + " " + bgI.getSize().getWidth());
-		//this.pane.setBackground(new Background(new BackgroundImage(image, null, null, null, null)));
-		this.pane.setBackground(new Background(bgI));
+		System.out.println("[D] bgImage: " + bgI.toString());
+		// this.pane.setBackground(new Background(new BackgroundImage(image, null, null, null, null)));
+		System.out.println(this.pane.getBackground());
+		this.pane.setBackground(new Background(new BackgroundImage(new Image(bgFile.toURI().toString()), null, null, null, null)));	
+		System.out.println(this.pane.getBackground());
+
+		
+		// this.pane.setBackground(new Background(new BackgroundImage(image, null, null, null,  null)));
 		/*
-		this.pane.setBackground(new Background(new BackgroundImage(image, null, null, null,  null)));
 		this.pane.setStyle("-fx-background-image: url('" + bgImagePath + "'); " +
 	           "-fx-background-position: center; " +
 	           "-fx-background-repeat: repeat;");
